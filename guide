@@ -1,0 +1,16 @@
+def get_quadratic_calculator():
+    def quadratic_calculator(a, b, c):
+        discriminant = b**2 - 4*a*c
+        if discriminant < 0:
+            return None  # no real solutions
+        elif discriminant == 0:
+            x = -b / (2*a)
+            return x, x  # single real solution
+        else:
+            x1 = (-b + discriminant**0.5) / (2*a)
+            x2 = (-b - discriminant**0.5) / (2*a)
+            return x1, x2  # two real solutions
+    return quadratic_calculator
+The get_quadratic_calculator() function returns another function, quadratic_calculator(), which actually performs the calculation. The quadratic_calculator() function takes three arguments a, b, and c, which are the coefficients of the quadratic equation ax^2 + bx + c = 0. It calculates the discriminant b^2 - 4ac, and depending on its value, returns either None if there are no real solutions, a tuple with a single real solution if the discriminant is zero, or a tuple with two real solutions if the discriminant is positive.
+
+Note that this implementation assumes that the input values a, b, and c are all real numbers. If any of them are complex, the function will return incorrect results.
